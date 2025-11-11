@@ -192,4 +192,5 @@ build-*/
 docgen_tmp/
 
 # mise
+.mise.toml
 .mise.*.toml
