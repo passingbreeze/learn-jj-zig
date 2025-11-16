@@ -1,19 +1,20 @@
 const std = @import("std");
 
-pub fn main() void { // [!] debug.print는 에러를 반환하지 않으므로 '!'가 없습니다.
+pub fn main() void {
 
-    // 1. 상수(const) 선언
-    const meaning_of_life: i32 = 42;
+    // ': i32' 타입을 생략했습니다.
+    const meaning_of_life = 42;
+    var current_year: i16 = 2024;
+    const pi = 3.14159;
 
-    // 2. 변수(var) 선언
-    var current_year: i32 = 2024;
+    // [!] 추가된 코드: @typeName과 @TypeOf를 사용해 타입 이름을 출력합니다.
+    std.debug.print("meaning_of_life의 타입: {s}\n", .{@typeName(@TypeOf(meaning_of_life))});
+    std.debug.print("current_year의 타입: {s}\n", .{@typeName(@TypeOf(current_year))});
+    std.debug.print("pi의 타입: {s}\n", .{@typeName(@TypeOf(pi))});
 
-    // 3. 값 출력
-    std.debug.print("상수: {}, 변수 (변경 전): {}\n", .{meaning_of_life, current_year});
 
-    // 4. 변수 값 변경
+    std.debug.print("상수: {}, 변수: {}\n", .{meaning_of_life, current_year});
+
     current_year = 2025;
-
-    // 5. 변경된 값 출력
     std.debug.print("변수 (변경 후): {}\n", .{current_year});
 }
